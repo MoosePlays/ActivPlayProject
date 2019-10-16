@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".hostActivity"></activity>
-        <activity android:name=".joinActivity" />
+        <activity android:name=".joinActivity"></activity>
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
