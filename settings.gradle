@@ -1,2 +1,2 @@
-include ':app'
+include ':app', ':spotify-auth-release', ':spotify-app-remote-release'
 rootProject.name='Activ Play'
