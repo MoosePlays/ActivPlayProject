@@ -1,11 +1,11 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 29
-    buildToolsVersion "29.0.2"
+    compileSdkVersion var1
+    buildToolsVersion var
     defaultConfig {
         applicationId "com.example.activplay"
-        minSdkVersion 14
+        minSdkVersion 26
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
@@ -19,6 +19,13 @@ android {
     }
 }
 
+repositories{
+    mavenCentral()
+    flatDir{
+        dirs 'libs'
+    }
+}
+
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'androidx.appcompat:appcompat:1.0.2'
@@ -27,4 +34,9 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
+
+    //dependencies for spotify
+    implementation project(':spotify-app-remote-release')
+    implementation project(':spotify-auth-release')
+    implementation "com.google.code.gson:gson:2.8.5"
 }

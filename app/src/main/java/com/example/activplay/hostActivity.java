@@ -1,12 +1,35 @@
 package com.example.activplay;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.spotify.android.appremote.api.ConnectionParams;
+import com.spotify.android.appremote.api.Connector;
+import com.spotify.android.appremote.api.SpotifyAppRemote;
+
+import com.spotify.protocol.client.Subscription;
+import com.spotify.protocol.types.PlayerState;
+import com.spotify.protocol.types.Track;
+
+private static final int REQUEST_CODE = 1337;
+private static final String REDIRECT_URI = "yourcustomprotocol://callback";
+
+AuthenticationRequest.Builder builder = new AuthenticationRequest.Builder(CLIENT_ID, AuthenticationResponse.Type.TOKEN, REDIRECT_URI);
+
+builder.setScopes(new String[]{"streaming"});
+AuthenticationRequest request = builder.build();
+
+AuthenticationClient.openLoginActivity(this, REQUEST_CODE, request);
+
 public class hostActivity extends AppCompatActivity {
+
+    //spotify credentials
+    private static final String CLIENT_ID = "0a5ebc3847e84ef0933b6f72aa3aeb2f";
+    private static final String REDIRECT_URI = "";
+    private SpotifyAppRemote mSpotifyAppRemote;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,5 +57,28 @@ public class hostActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    //spotify stuff
+    @Override
+    protected void onStart(){
+        super.onStart();
+        ConnectionParams connectionParams =
+                new ConnectionParams.Builder(CLIENT_ID)
+                        .setRedirectUri(REDIRECT_URI)
+                        .showAuthView(true)
+                        .build();
+
+
+    }
+
+    private void connected(){
+
+    }
+
+    @Override
+    protected void onStop(){
+        super.onStop();
+
     }
 }
