@@ -36,6 +36,7 @@ public class hostActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_host);
     }
+    
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
