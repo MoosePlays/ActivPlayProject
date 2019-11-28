@@ -1,6 +1,8 @@
 package com.example.activplay;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -12,7 +14,7 @@ import com.spotify.android.appremote.api.SpotifyAppRemote;
 import com.spotify.protocol.client.Subscription;
 import com.spotify.protocol.types.PlayerState;
 import com.spotify.protocol.types.Track;
-
+import com.spotify.sdk.android.authentication.*;
 
 
 public class hostActivity extends AppCompatActivity {
@@ -23,6 +25,7 @@ public class hostActivity extends AppCompatActivity {
     AuthenticationRequest.Builder builder = new AuthenticationRequest.Builder(CLIENT_ID, AuthenticationResponse.Type.TOKEN, REDIRECT_URI);
 
     builder.setScopes(new String[]{"streaming"});
+
     AuthenticationRequest request = builder.build();
 
     AuthenticationClient.openLoginActivity(this, REQUEST_CODE, request);
@@ -70,10 +73,29 @@ public class hostActivity extends AppCompatActivity {
                         .showAuthView(true)
                         .build();
 
+        SpotifyAppRemote.connect(this, connectionParams,
+                new Connector.ConnectionListener() {
 
+                    @Override
+                    public void onConnected(SpotifyAppRemote spotifyAppRemote) {
+                        mSpotifyAppRemote = spotifyAppRemote;
+                        Log.d("MainActivity", "Connected! Yay!");
+
+                        // Now you can start interacting with App Remote
+                        connected();
+                    }
+
+                    @Override
+                    public void onFailure(Throwable throwable) {
+                        Log.e("MainActivity", throwable.getMessage(), throwable);
+
+                        // Something went wrong when attempting to connect! Handle errors here
+                    }
+                });
     }
 
     private void connected(){
+        //add any functions for modifying play state/playlist stuff here
 
     }
 
@@ -81,5 +103,26 @@ public class hostActivity extends AppCompatActivity {
     protected void onStop(){
         super.onStop();
 
+    }
+
+    protected void onActivityResult(int requestCode, int resultCode, Intent intent){
+        super.onActivityResult(requestCode, resultCode, intent);
+
+        if(requestCode == REQUEST_CODE){
+            AuthenticationResponse response = AuthenticationClient.getResponse(resultCode, intent);
+
+            switch(response.getType()){
+                case TOKEN:
+                    //correct response
+                    break;
+
+                case ERROR:
+                    //error stuff
+                    break;
+
+                default;
+                    //etc
+            }
+        }
     }
 }
