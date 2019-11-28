@@ -24,6 +24,7 @@ public class hostActivity extends AppCompatActivity {
 
     AuthenticationRequest.Builder builder = new AuthenticationRequest.Builder(CLIENT_ID, AuthenticationResponse.Type.TOKEN, REDIRECT_URI);
 
+    //Todo: find why setScopes() and openLoginActivity() don't work
     builder.setScopes(new String[]{"streaming"});
 
     AuthenticationRequest request = builder.build();
@@ -87,21 +88,21 @@ public class hostActivity extends AppCompatActivity {
                     @Override
                     public void onFailure(Throwable throwable) {
                         Log.e("MainActivity", throwable.getMessage(), throwable);
+                        //Todo: error message if it doesn't connect properly
 
-                        // Something went wrong when attempting to connect! Handle errors here
                     }
                 });
     }
 
     private void connected(){
-        //add any functions for modifying play state/playlist stuff here
+        //Todo: add functions for modifying play state/playlist stuff here
 
     }
 
     @Override
     protected void onStop(){
         super.onStop();
-
+        //Todo: disconnect properly from spotify app
     }
 
     protected void onActivityResult(int requestCode, int resultCode, Intent intent){
@@ -119,7 +120,7 @@ public class hostActivity extends AppCompatActivity {
                     //error stuff
                     break;
 
-                default;
+                default:
                     //etc
             }
         }
