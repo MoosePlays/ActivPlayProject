@@ -14,17 +14,19 @@ import com.spotify.protocol.client.Subscription;
 import com.spotify.protocol.types.PlayerState;
 import com.spotify.protocol.types.Track;
 
-private static final int REQUEST_CODE = 1337;
-private static final String REDIRECT_URI = "yourcustomprotocol://callback";
 
-AuthenticationRequest.Builder builder = new AuthenticationRequest.Builder(CLIENT_ID, AuthenticationResponse.Type.TOKEN, REDIRECT_URI);
-
-builder.setScopes(new String[]{"streaming"});
-AuthenticationRequest request = builder.build();
-
-AuthenticationClient.openLoginActivity(this, REQUEST_CODE, request);
 
 public class hostActivity extends AppCompatActivity {
+
+    private static final int REQUEST_CODE = 1337;
+    private static final String REDIRECT_URI = "yourcustomprotocol://callback";
+
+    AuthenticationRequest.Builder builder = new AuthenticationRequest.Builder(CLIENT_ID, AuthenticationResponse.Type.TOKEN, REDIRECT_URI);
+
+    builder.setScopes(new String[]{"streaming"});
+    AuthenticationRequest request = builder.build();
+
+    AuthenticationClient.openLoginActivity(this, REQUEST_CODE, request);
 
     //spotify credentials
     private static final String CLIENT_ID = "0a5ebc3847e84ef0933b6f72aa3aeb2f";
@@ -36,7 +38,7 @@ public class hostActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_host);
     }
-    
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
