@@ -9,7 +9,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.spotify.android.appremote.api.ConnectionParams;
 import com.spotify.android.appremote.api.Connector;
 import com.spotify.android.appremote.api.SpotifyAppRemote;
-
 import com.spotify.protocol.client.Subscription;
 import com.spotify.protocol.types.PlayerState;
 import com.spotify.protocol.types.Track;
@@ -19,7 +18,7 @@ import com.spotify.protocol.types.Track;
 public class hostActivity extends AppCompatActivity {
 
     private static final int REQUEST_CODE = 1337;
-    private static final String REDIRECT_URI = "yourcustomprotocol://callback";
+    private static final String REDIRECT_URI = "";
 
     AuthenticationRequest.Builder builder = new AuthenticationRequest.Builder(CLIENT_ID, AuthenticationResponse.Type.TOKEN, REDIRECT_URI);
 
@@ -30,7 +29,6 @@ public class hostActivity extends AppCompatActivity {
 
     //spotify credentials
     private static final String CLIENT_ID = "0a5ebc3847e84ef0933b6f72aa3aeb2f";
-    private static final String REDIRECT_URI = "";
     private SpotifyAppRemote mSpotifyAppRemote;
 
     @Override
