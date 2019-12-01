@@ -25,11 +25,11 @@ public class hostActivity extends AppCompatActivity {
     AuthenticationRequest.Builder builder = new AuthenticationRequest.Builder(CLIENT_ID, AuthenticationResponse.Type.TOKEN, REDIRECT_URI);
 
     //Todo: find why setScopes() and openLoginActivity() don't work
-    builder.setScopes(new String[]{"streaming"});
+    //builder.setBuilder(new String[]{"streaming"});
 
     AuthenticationRequest request = builder.build();
 
-    AuthenticationClient.openLoginActivity(this, REQUEST_CODE, request);
+    //AuthenticationClient.openLoginActivity(this, REQUEST_CODE, request);
 
     //spotify credentials
     private static final String CLIENT_ID = "0a5ebc3847e84ef0933b6f72aa3aeb2f";

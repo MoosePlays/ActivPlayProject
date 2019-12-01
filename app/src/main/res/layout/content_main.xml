@@ -10,42 +10,35 @@
 
     <Button
         android:id="@+id/joinButton"
-        android:layout_width="130dp"
-        android:layout_height="75dp"
-        android:layout_marginTop="50dp"
+        android:layout_width="110dp"
+        android:layout_height="300dp"
+        android:layout_marginStart="60dp"
+        android:lineSpacingExtra="0sp"
         android:text="@string/join"
-        android:textSize="30sp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:textSize="58sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="218dp"
-        android:layout_height="85dp"
-        android:layout_marginTop="100dp"
-        android:text="@string/activ_play_logo_here"
-        android:textSize="36sp"
-        android:typeface="normal"
-        app:fontFamily="monospace"
-        app:layout_constraintBottom_toTopOf="@+id/joinButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.484" />
+        app:layout_constraintTop_toTopOf="@+id/hostButton" />
 
     <Button
         android:id="@+id/hostButton"
-        android:layout_width="130dp"
-        android:layout_height="75dp"
-        android:layout_marginTop="28dp"
+        android:layout_width="110dp"
+        android:layout_height="300dp"
+        android:layout_marginTop="44dp"
         android:text="@string/host"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textSize="58sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintStart_toEndOf="@+id/joinButton"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="909dp"
+        android:layout_height="606dp"
+        android:layout_marginTop="112dp"
+        android:contentDescription="@string/activ_play_logo"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/joinButton"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="@+id/hostButton"
+        app:srcCompat="@mipmap/ic_launcher_foreground" />
 </androidx.constraintlayout.widget.ConstraintLayout>
