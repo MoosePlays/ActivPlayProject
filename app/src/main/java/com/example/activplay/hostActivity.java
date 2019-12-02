@@ -20,7 +20,7 @@ import com.spotify.sdk.android.authentication.*;
 public class hostActivity extends AppCompatActivity {
 
     private static final int REQUEST_CODE = 1337;
-    private static final String REDIRECT_URI = "";
+    private static final String REDIRECT_URI = "google.com";
 
     AuthenticationRequest.Builder builder = new AuthenticationRequest.Builder(CLIENT_ID, AuthenticationResponse.Type.TOKEN, REDIRECT_URI);
 
@@ -63,6 +63,7 @@ public class hostActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    /*
     //spotify stuff
     @Override
     protected void onStart(){
@@ -93,7 +94,7 @@ public class hostActivity extends AppCompatActivity {
                     }
                 });
     }
-
+    */
     private void connected(){
         //Todo: add functions for modifying play state/playlist stuff here
 

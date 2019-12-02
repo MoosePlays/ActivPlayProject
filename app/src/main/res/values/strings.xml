@@ -9,4 +9,9 @@
     <string name="room">Room</string>
     <string name="next">next</string>
     <string name="activ_play_logo">activ play logo</string>
+    <string name="user">USER</string>
+    <string name="privateParty">Private</string>
+    <string name="publicParty">Public</string>
+    <string name="createButton">C\nR\nE\nA\nT\nE</string>
+    <string name="party_status">Party Status:</string>
 </resources>
