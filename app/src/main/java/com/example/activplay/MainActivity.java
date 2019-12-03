@@ -16,7 +16,7 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button joinButton, hostButton;
+    private Button joinButton, hostButton, settingsButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,8 +70,10 @@ public class MainActivity extends AppCompatActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        //handle settings click
+        if (id == R.id.settingsButton) {
+            Intent intent = new Intent(this, settingsMenu.class);
+            startActivity(intent);
             return true;
         }
 

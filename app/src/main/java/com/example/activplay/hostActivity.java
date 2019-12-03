@@ -1,10 +1,17 @@
 package com.example.activplay;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.InputType;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.app.AlertDialog;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.RadioGroup;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -16,11 +23,16 @@ import com.spotify.protocol.types.PlayerState;
 import com.spotify.protocol.types.Track;
 import com.spotify.sdk.android.authentication.*;
 
+import static android.text.InputType.TYPE_CLASS_TEXT;
+
 
 public class hostActivity extends AppCompatActivity {
 
     private static final int REQUEST_CODE = 1337;
     private static final String REDIRECT_URI = "google.com";
+    private Button createButton;
+    private RadioGroup privacySetting;
+    private String inText = "";
 
     AuthenticationRequest.Builder builder = new AuthenticationRequest.Builder(CLIENT_ID, AuthenticationResponse.Type.TOKEN, REDIRECT_URI);
 
@@ -39,6 +51,18 @@ public class hostActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_host);
+
+        //set RadioGroup's click listener
+        privacySetting = (RadioGroup) findViewById(R.id.privacyRadioGroup);
+
+        //set createButton's click listener
+        createButton = findViewById(R.id.createButton);
+        createButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                createButtonPress();
+            }
+        });
     }
 
     @Override
@@ -56,7 +80,7 @@ public class hostActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.settingsButton) {
             return true;
         }
 
@@ -95,24 +119,24 @@ public class hostActivity extends AppCompatActivity {
                 });
     }
     */
-    private void connected(){
+    private void connected() {
         //Todo: add functions for modifying play state/playlist stuff here
 
     }
 
     @Override
-    protected void onStop(){
+    protected void onStop() {
         super.onStop();
         //Todo: disconnect properly from spotify app
     }
 
-    protected void onActivityResult(int requestCode, int resultCode, Intent intent){
+    protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
         super.onActivityResult(requestCode, resultCode, intent);
 
-        if(requestCode == REQUEST_CODE){
+        if (requestCode == REQUEST_CODE) {
             AuthenticationResponse response = AuthenticationClient.getResponse(resultCode, intent);
 
-            switch(response.getType()){
+            switch (response.getType()) {
                 case TOKEN:
                     //correct response
                     break;
@@ -125,5 +149,33 @@ public class hostActivity extends AppCompatActivity {
                     //etc
             }
         }
+    }
+
+    //TODO this doesnt seem to be working, but overall hostActivity looks good
+    //click function for create button press
+    private void createButtonPress() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Title");
+
+        //set up input:
+        final EditText input = new EditText(this);
+        //specify the type on input expected
+        input.setInputType(InputType.TYPE_CLASS_TEXT);
+        builder.setView(input);
+
+        //button set up
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                inText = input.getText().toString();
+            }
+        });
+
+        builder.setNegativeButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
     }
 }
