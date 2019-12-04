@@ -1,0 +1,5 @@
+<root>
+    <item name='com.spotify.sdk.android.authentication.AuthenticationClient'>
+        <annotation name='java.lang.Deprecated' />
+    </item>
+</root>
