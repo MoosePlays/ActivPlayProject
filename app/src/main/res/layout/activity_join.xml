@@ -6,40 +6,28 @@
     android:layout_height="match_parent"
     tools:context=".joinActivity">
 
-    <EditText
-        android:id="@+id/nameBox"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="220dp"
-        android:ems="10"
-        android:hint="@string/promptName"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:autofillHints="" tools:targetApi="o"/>
-
-    <EditText
-        android:id="@+id/roomBox"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="72dp"
-        android:autofillHints=""
-        android:ems="10"
-        android:hint="@string/room"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nameBox" tools:targetApi="o" />
-
     <Button
-        android:id="@+id/goToUser"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="72dp"
-        android:text="@string/next"
+        android:id="@+id/joinButton"
+        android:layout_width="106dp"
+        android:layout_height="397dp"
+        android:layout_marginTop="96dp"
+        android:text="@string/join"
+        android:textSize="50sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Switch
+        android:id="@+id/livePlayListSwitch"
+        android:layout_width="216dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="96dp"
+        android:text="@string/live_playlist"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/roomBox" />
+        app:layout_constraintTop_toBottomOf="@+id/joinButton"
+        app:layout_constraintVertical_bias="0.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>

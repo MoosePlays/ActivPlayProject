@@ -6,13 +6,76 @@
     android:layout_height="match_parent"
     tools:context=".settingsMenu">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/settingsRecycler"
-        android:layout_width="409dp"
-        android:layout_height="729dp"
-        android:scrollbars="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <Button
+        android:id="@+id/aboutUsButton"
+        android:layout_width="300dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="60dp"
+        android:text="@string/about_us"
+        android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="300dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="30dp"
+        android:text="@string/contact_us"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/aboutUsButton" />
+
+    <Button
+        android:id="@+id/userSettingsButton"
+        android:layout_width="300dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="30dp"
+        android:text="@string/user_settings"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button2" />
+
+    <Button
+        android:id="@+id/hostSettingsButton"
+        android:layout_width="300dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="30dp"
+        android:text="@string/host_settings"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/userSettingsButton" />
+
+    <Button
+        android:id="@+id/themesButton"
+        android:layout_width="300dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="30dp"
+        android:text="@string/themes"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hostSettingsButton" />
+
+    <Button
+        android:id="@+id/musicSettingsButton"
+        android:layout_width="300dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="30dp"
+        android:text="@string/music_settings"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/themesButton" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

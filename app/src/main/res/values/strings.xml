@@ -14,4 +14,14 @@
     <string name="publicParty">Public</string>
     <string name="createButton">C\nR\nE\nA\nT\nE</string>
     <string name="party_status">Party Status:</string>
+    <string name="live_playlist">Live Playlist</string>
+    <string name="connected_to">Connected to:</string>
+    <string name="add">Add</string>
+    <string name="user_recommendations">User Recommendations</string>
+    <string name="disconnect">disconnect</string>
+    <string name="about_us">About Us</string>
+    <string name="user_settings">User Settings</string>
+    <string name="host_settings">Host Settings</string>
+    <string name="themes">Themes</string>
+    <string name="music_settings">Music Settings</string>
 </resources>

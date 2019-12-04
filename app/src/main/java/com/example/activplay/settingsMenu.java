@@ -19,9 +19,10 @@ public class settingsMenu extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings_menu);
 
-        //set up settings list
+        //TODO create RecyclerView for settings list (makes it look a bit nicer)
+        /*//set up settings list
         todoRecyclerView = findViewById(R.id.settingsRecycler);
         todoRecyclerView.setHasFixedSize(true);
-
+        */
     }
 }

@@ -53,7 +53,7 @@ public class hostActivity extends AppCompatActivity {
         setContentView(R.layout.activity_host);
 
         //set RadioGroup's click listener
-        privacySetting = (RadioGroup) findViewById(R.id.privacyRadioGroup);
+        privacySetting = findViewById(R.id.privacyRadioGroup);
 
         //set createButton's click listener
         createButton = findViewById(R.id.createButton);
@@ -81,6 +81,8 @@ public class hostActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.settingsButton) {
+            Intent intent = new Intent(this, settingsMenu.class);
+            startActivity(intent);
             return true;
         }
 
@@ -151,11 +153,11 @@ public class hostActivity extends AppCompatActivity {
         }
     }
 
-    //TODO this doesnt seem to be working, but overall hostActivity looks good
     //click function for create button press
     private void createButtonPress() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Title");
+        builder.setTitle("Room Name:");
+        builder.setCancelable(true);
 
         //set up input:
         final EditText input = new EditText(this);
@@ -168,14 +170,25 @@ public class hostActivity extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 inText = input.getText().toString();
+                openHostMenu(inText);
             }
         });
 
-        builder.setNegativeButton("OK", new DialogInterface.OnClickListener() {
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dialog.cancel();
             }
         });
+
+        AlertDialog alert = builder.create();
+        alert.show();
+    }
+
+    //open hostMenu and pass it the inText value
+    private void openHostMenu(String input){
+        Intent intent = new Intent(this, hostMenu.class);
+        intent.putExtra("roomName", input);
+        startActivity(intent);
     }
 }
